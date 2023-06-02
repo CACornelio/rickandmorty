@@ -1,19 +1,16 @@
-const {login} =require ('../controllers/login');
+const {login} = require('../Controllers/login');
+const {getCharById} = require('../Controllers/getCharById');
+const {postFav, deleteFav} = require('../Controllers/handleFavorites');
 
-const getCharByID = require('../controllers/getCharByID');
-const{postFav, deleteFav} = require('../controllers/handleFavorites');
-const router =require('express').Router();
+const router = require('express').Router();
 
 
-router.get('/character/:id', getCharByID);
+router.get('/character/:id', getCharById);
 
-router.get('/login', login);
+router.get('/login', login );
 
 router.post('/fav', postFav);
 
 router.delete('/fav/:id', deleteFav);
 
-
-
-
-
+module.exports = router;
